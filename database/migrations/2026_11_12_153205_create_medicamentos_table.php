@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('categoria');
             $table-> decimal('precio',10,2);
             $table-> decimal('costo',10,2);
-            $table-> int('inventario');
+            $table-> integer('inventario');
             $table-> string('imagen')->nullnable();
             $table->string('laboratorio');
-            $table->int('lote');
+            $table->integer('lote');
             $table->date('vencimiento');
             $table->timestamps();
         });

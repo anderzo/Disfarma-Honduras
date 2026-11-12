@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuarios;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
 
 class UsuariosController extends Controller
 {
@@ -12,7 +15,8 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        //
+        $usuarios = Usuarios::all();
+        return view('dashboard'); 
     }
 
     /**
@@ -20,7 +24,7 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        //
+        return view('register');
     }
 
     /**
@@ -28,38 +32,53 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $request->validate([
+            'usuario' => 'required|string|max:255|unique:usuarios,usuario',
+            'correo' => ['required', 'email', 'unique:usuarios,correo', 'regex:/^[a-zA-Z0-9._%+-]+@disfarma\.hn$/i'],
+            'password' => ['required', 'string', 'min:6'],
+        ], [
+            'correo.regex' => 'El correo debe ser institucional (@disfarma.hn).',
+        ]);
+
+        Usuarios::create([
+            'usuario' => $request->usuario,
+            'correo' => $request->correo,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->route('login')->with('success', 'Usuario registrado exitosamente.');}
+
+    public function showLogin()
+    {
+        return view('page-login');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Usuarios $usuarios)
+
+    public function login(Request $request)
     {
-        //
+        $credentials = $request->validate([
+            'correo' => ['required', 'email', 'regex:/^[a-zA-Z0-9._%+-]+@disfarma\.hn$/i'],
+            'password' => ['required'],
+        ]);
+
+        $remember = $request->boolean('remember');
+
+        if (Auth::attempt(['correo' => $credentials['correo'], 'password' => $credentials['password']], $remember)) {
+            $request->session()->regenerate();
+            return redirect()->intended(route('dashboard'));
+        }
+
+        return back()->withErrors([
+            'correo' => 'Las credenciales no son válidas',
+        ])->onlyInput('correo');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Usuarios $usuarios)
+    public function logout(Request $request)
     {
-        //
-    }
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Usuarios $usuarios)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Usuarios $usuarios)
-    {
-        //
+        return redirect()->route('login');
     }
 }
