@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('medicamentos', function (Blueprint $table) {
             $table->id();
-            $table-> string('SKU')->unique();
+            $table-> string('codigo')->unique();
             $table->string('nombreMedicamento');
             $table->string('categoria');
             $table-> decimal('precio',10,2);
             $table-> decimal('costo',10,2);
             $table-> integer('inventario');
-            $table-> string('imagen')->nullnable();
+            $table->string('imagen')->nullable();
             $table->string('laboratorio');
-            $table->integer('lote');
+            $table->integer('numero_lote');
             $table->date('vencimiento');
             $table->timestamps();
         });

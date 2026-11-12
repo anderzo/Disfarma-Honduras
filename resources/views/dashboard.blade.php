@@ -6,20 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Farmacia</title>
 
-  <!-- SEO Optimization -->
   <meta name="description" content="Spark Admin - Premium Bootstrap 5 Admin Dashboard Template">
   <meta name="author" content="Spark Admin Team">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon.ico') }}">
 
-  <!-- Local Third-Party Libraries (100% Offline Compatible) -->
   <link rel="stylesheet" href="{{ asset('assets/libs/bootstrap/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/libs/bootstrap-icons/bootstrap-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/libs/apexcharts/apexcharts.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/libs/flatpickr/flatpickr.min.css') }}">
 
-  <!-- Main Design System & Custom Stylesheet -->
   <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 </head>
 
@@ -52,13 +49,10 @@
       </div>
 
       <!-- Group: Components -->
-      <div class="sidebar-menu-section">
-        <div class="sidebar-menu-title">Medicamentos</div>
-        <ul class="sidebar-menu-list">
-          <li class="sidebar-menu-item">
-            <a href="tables-basic.html" class="sidebar-menu-link" id="menu-basictables" title="Basic Tables">
-              <i class="bi bi-table"></i>
-              <span></span>
+         <li class="sidebar-menu-item">
+            <a href="{{ route('medicamentos.index') }}" class="sidebar-menu-link" id="menu-basictables" title="Catálogo de Medicamentos">
+              <i class="bi bi-capsule"></i>
+              <span>Catálogo</span>
             </a>
           </li>
           <li class="sidebar-menu-item">

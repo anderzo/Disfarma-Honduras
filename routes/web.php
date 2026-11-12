@@ -15,3 +15,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [UsuariosController::class, 'index'])->name('dashboard');
     Route::post('/logout', [UsuariosController::class, 'logout'])->name('logout');
 });
+
+use App\Http\Controllers\MedicamentosController;
+Route::resource('medicamentos', MedicamentosController::class);
+
