@@ -12,4 +12,11 @@ class usuarios extends Model
         'usuario',
         'correo',
     ];
+
+     protected $hidden = [
+        'contraseña',
+    ];
+
 }
+
+
