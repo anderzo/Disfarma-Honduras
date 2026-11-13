@@ -41,7 +41,7 @@
       </div>
 
       <div class="sidebar-menu-section">
-        <div class="sidebar-menu-title">Medicamentos</div>
+        <div class="sidebar-menu-title">Modulos</div>
         <ul class="sidebar-menu-list">
           <li class="sidebar-menu-item">
             <a href="{{ route('medicamentos.index') }}" class="sidebar-menu-link" id="menu-basictables" title="Catálogo de Medicamentos">
@@ -139,7 +139,6 @@
             <div class="card alert-green-card">
               <div class="position-relative z-index-2">
                 <span class="alert-green-badge">Medicamentos en Catálogo</span>
-                <div class="alert-green-date">Feb 14th 2026</div>
                 <div class="alert-green-text">{{ number_format($totalMedicamentos) }}</div>
               </div>
 
@@ -165,12 +164,6 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-custom">
                       <li><a class="dropdown-item" href="#"><i class="bi bi-arrow-repeat"></i> Refresh</a></li>
-                      <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-arrow-down"></i> Export
-                          Report</a></li>
-                      <li>
-                        <hr class="dropdown-divider">
-                      </li>
-                      <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-eye-slash"></i> Hide Details</a>
                       </li>
                     </ul>
                   </div>
@@ -195,12 +188,9 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-custom">
                       <li><a class="dropdown-item" href="#"><i class="bi bi-arrow-repeat"></i> Refresh</a></li>
-                      <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-arrow-down"></i> Export
-                          Report</a></li>
                       <li>
                         <hr class="dropdown-divider">
                       </li>
-                      <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-eye-slash"></i> Hide Details</a>
                       </li>
                     </ul>
                   </div>

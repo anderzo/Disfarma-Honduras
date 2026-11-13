@@ -72,7 +72,7 @@
         onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=256&auto=format&fit=crop'">
       <div class="sidebar-profile-info">
         <div class="sidebar-profile-name">{{ Auth::user()->usuario ?? 'Admin' }}</div>
-        <div class="sidebar-profile-email">admin@email.com</div>
+        <div class="sidebar-profile-email">{{ Auth::user()->correo ?? 'admin@disfarma.hn' }}</div>
       </div>
     </div>
   </div>

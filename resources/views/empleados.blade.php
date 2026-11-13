@@ -53,6 +53,7 @@
       <img src="{{ asset('assets/images/avatar.png') }}" alt="Administrator" class="sidebar-profile-img">
       <div class="sidebar-profile-info">
         <div class="sidebar-profile-name">{{ Auth::user()->usuario ?? 'Admin' }}</div>
+        <div class="sidebar-profile-email">{{ Auth::user()->correo ?? 'admin@disfarma.hn' }}</div>
       </div>
     </div>
   </div>
