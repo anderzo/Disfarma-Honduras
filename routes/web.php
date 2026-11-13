@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\ProveedoresController;
+use App\Http\Controllers\EmpleadosController;
 
 Route::middleware('guest')->group(function () {
     Route::get('/', [UsuariosController::class, 'showLogin'])->name('login');
@@ -18,6 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [UsuariosController::class, 'logout'])->name('logout');
 
     Route::resource('proveedores', ProveedoresController::class);
+
+    Route::resource('empleados', EmpleadosController::class);
 });
 
 use App\Http\Controllers\MedicamentosController;

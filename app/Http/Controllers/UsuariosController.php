@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
+use Illuminate\Support\Facades\DB;
+use App\Models\Medicamentos; 
+use App\Models\Proveedores;  
+use App\Models\Empleados;
 
 class UsuariosController extends Controller
 {
@@ -15,8 +19,14 @@ class UsuariosController extends Controller
      */
     public function index()
     {
+        $totalMedicamentos = Medicamentos::count();
+        $totalProveedores = Proveedores::where('estado', 'Activo')->count();
+        $totalEmpleados = Empleados::count();
+
+        $valorInventario = DB::table('medicamentos')->sum(DB::raw('inventario * precio'));
+
         $usuarios = Usuarios::all();
-        return view('dashboard'); 
+        return view('dashboard', compact('totalMedicamentos', 'totalProveedores', 'totalEmpleados', 'valorInventario')); 
     }
 
     /**

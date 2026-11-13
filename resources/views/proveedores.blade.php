@@ -46,7 +46,7 @@
             </a>
           </li>
           <li class="sidebar-menu-item">
-            <a href="#" class="sidebar-menu-link">
+            <a href="{{ route('empleados.index') }}" class="sidebar-menu-link active">
               <i class="bi bi-menu-button-wide-fill"></i><span>Empleados</span>
             </a>
           </li>
@@ -79,7 +79,7 @@
               <form action="{{ route('logout') }}" method="POST" class="m-0">
                 @csrf
                 <button type="submit" class="dropdown-item text-danger">
-                  <i class="bi bi-box-arrow-right"></i> Logout
+                  <i class="bi bi-box-arrow-right"></i> cerrar sesion
                 </button>
               </form>
             </li>
@@ -88,7 +88,6 @@
       </div>
     </header>
 
-    <!-- HEADER DE LA PÁGINA -->
     <div class="page-header d-flex justify-content-between align-items-center mt-4 mb-4">
         <div>
             <h1 class="page-title">Directorio de Proveedores</h1>
@@ -184,6 +183,24 @@
             </div>
         </div>
     </div>
+
+    <footer class="footer-custom">
+      <div class="footer-left">
+        <span class="footer-logo">
+          <i class="bi bi-asterisk"></i> DISFARMA HONDURAS
+        </span>
+        <span class="footer-separator">|</span>
+        <span class="footer-copy">&copy; 2026 Droguería y Distribuidora Farmacéutica San Rafael S. de R.L.</span>
+      </div>
+      <div class="footer-right">
+        <ul class="footer-links">
+          <li><a href="{{ route('dashboard') }}" class="footer-link">Dashboard</a></li>
+          <li><a href="{{ route('medicamentos.index') }}" class="footer-link">Medicamentos</a></li>
+          <li><a href="{{ route('proveedores.index') }}" class="footer-link">Proveedores</a></li>
+          <li><a href="{{ route('empleados.index') }}" class="footer-link">Empleados <span class="status-dot"></span></a></li>
+        </ul>
+      </div>
+    </footer>
   </div>
 
   <!-- MODAL DINÁMICO (Crear/Editar) -->
