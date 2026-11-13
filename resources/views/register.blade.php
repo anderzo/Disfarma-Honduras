@@ -43,7 +43,7 @@
                 </div>
                 
                 <div class="login-form-group">
-                    <label for="correo" class="login-form-label">Correo Institucional</label>
+                    <label for="correo" class="login-form-label">Correo </label>
                     <div class="login-input-group">
                         <i class="bi bi-envelope input-icon"></i>
                         <input type="email" name="correo" id="correo" 

@@ -56,10 +56,11 @@
             </a>
           </li>
           <li class="sidebar-menu-item">
-            <a href="ui-forms.html" class="sidebar-menu-link" id="menu-uiforms" title="Forms and Input">
+            <a href="{{ route('proveedores.index') }}" class="sidebar-menu-link" id="menu-uiforms" title="Proveedores">
               <i class="bi bi-input-cursor-text"></i>
               <span>Proveedores</span>
             </a>
+          </li>
           </li>
           <li class="sidebar-menu-item">
             <a href="ui-buttons.html" class="sidebar-menu-link" id="menu-uibuttons" title="Buttons">
@@ -70,7 +71,6 @@
         </ul>
       </div>
 
-      <!-- Group: Pages -->
       <div class="sidebar-menu-section">
         <div class="sidebar-menu-title">Pages</div>
         <ul class="sidebar-menu-list">
